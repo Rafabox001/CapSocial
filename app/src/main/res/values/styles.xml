@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppThemeLogin" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/textLight</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="registerButton">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:background">@drawable/register_border</item>
+    </style>
+
 </resources>

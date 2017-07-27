@@ -19,7 +19,14 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="login_register">o ingresa tu correo y tu contraseña</string>
+    <string name="ingresa">Ingresa</string>
+    <string name="register">Registrate</string>
+    <string name="forgot_pass"><u>¿Has olvidado tu contraseña?</u></string>
 
+    <!-- User hints -->
+    <string name="user_hint">Usuario</string>
+    <string name="pass_hint">Contraseña</string>
    <string name="login_facebook">Log In With Facebook</string>
 
 </resources>
