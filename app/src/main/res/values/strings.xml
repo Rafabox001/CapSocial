@@ -8,6 +8,7 @@
 
 
     <!-- Strings related to login -->
+
     <string name="login_register">o ingresa tu correo y tu contraseña</string>
     <string name="ingresa">Ingresa</string>
     <string name="register">Registrate</string>
@@ -16,6 +17,7 @@
     <!-- User hints -->
     <string name="user_hint">Usuario</string>
     <string name="pass_hint">Contraseña</string>
-   <string name="login_facebook">Log In With Facebook</string>
+    <string name="login_facebook">Log In With Facebook</string>
+    <string name="title_activity_home">HomeActivity</string>
 
 </resources>

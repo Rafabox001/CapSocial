@@ -9,4 +9,8 @@
     <dimen name="login_margin">16dp</dimen>
     <dimen name="login_inner_margin">8dp</dimen>
     <dimen name="login_small">4dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="elevation_medium">12dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
 </resources>

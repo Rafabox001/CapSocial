@@ -24,11 +24,6 @@
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
-    <ScrollView
-        android:id="@+id/login_form"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <LinearLayout
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
@@ -50,7 +45,6 @@
                 android:background="@drawable/bkg_fb_btn"
                 android:drawableLeft="@drawable/ic_fb_register"
                 android:drawableStart="@drawable/ic_fb_register"
-                android:padding="5dp"
                 android:paddingEnd="25dp"
                 android:paddingStart="25dp"
                 android:text="@string/login_facebook"
@@ -82,11 +76,14 @@
                     android:src="@drawable/iconousuario" />
 
 
-
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/input_layout_user"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:hint="@string/user_hint"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" >
 
                     <EditText
                         android:id="@+id/user"
@@ -96,6 +93,7 @@
                         android:layout_marginLeft="10dp"
                         android:hint="@string/user_hint"/>
                 </android.support.design.widget.TextInputLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -158,5 +156,4 @@
 
         </LinearLayout>
 
-    </ScrollView>
 </LinearLayout>

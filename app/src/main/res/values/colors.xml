@@ -6,7 +6,9 @@
     <color name="textLight">#CCC</color>
     <color name="textDark">#424242</color>
 
-
+    <color name="whiteTranslucent">#96ffffff</color>
+    <color name="blackTranslucent">#bf000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="colorAccentDrawer">#ccFF149B</color>
 
 </resources>
