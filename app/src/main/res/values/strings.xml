@@ -1,22 +1,21 @@
 <resources>
     <string name="app_name">Capital Social</string>
 
+    <!-- Facebook keys -->
+
+    <string name="facebook_app_id">867301203443195</string>
+    <string name="fb_login_protocol_scheme">fb867301203443195</string>
+
+
     <!-- Strings related to login -->
     <string name="login_register">o ingresa tu correo y tu contraseña</string>
     <string name="ingresa">Ingresa</string>
     <string name="register">Registrate</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="forgot_pass"><u>¿Has olvidado tu contraseña?</u></string>
 
     <!-- User hints -->
     <string name="user_hint">Usuario</string>
     <string name="pass_hint">Contraseña</string>
+   <string name="login_facebook">Log In With Facebook</string>
+
 </resources>
