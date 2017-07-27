@@ -4,9 +4,6 @@ import android.graphics.Bitmap;
 
 import java.io.Serializable;
 
-/**
- * Created by Salvador Elizarraras on 18/06/2017.
- */
 
 public class ItemData implements Serializable{
 
