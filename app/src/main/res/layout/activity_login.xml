@@ -39,7 +39,6 @@
                 android:background="@drawable/bkg_fb_btn"
                 android:drawableLeft="@drawable/ic_fb_register"
                 android:drawableStart="@drawable/ic_fb_register"
-                android:padding="5dp"
                 android:paddingEnd="25dp"
                 android:paddingStart="25dp"
                 android:text="@string/login_facebook"
@@ -59,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
 

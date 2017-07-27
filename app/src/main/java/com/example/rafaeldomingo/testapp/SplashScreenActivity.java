@@ -18,9 +18,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * Created by manguitodeveloper01 on 10/9/15.
- */
+
 public class SplashScreenActivity extends Activity {
 
     // Set the duration of the splash screen
