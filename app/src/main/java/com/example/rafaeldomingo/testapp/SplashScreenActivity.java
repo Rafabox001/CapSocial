@@ -34,8 +34,6 @@ public class SplashScreenActivity extends Activity {
 
         setContentView(R.layout.splash_screen);
 
-
-
         TimerTask task = new TimerTask() {
             @Override
             public void run() {

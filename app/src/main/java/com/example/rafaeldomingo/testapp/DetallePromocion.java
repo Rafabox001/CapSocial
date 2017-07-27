@@ -20,22 +20,27 @@ import com.github.clans.fab.FloatingActionButton;
 import java.io.Serializable;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import de.svenjacobs.loremipsum.LoremIpsum;
 
 public class DetallePromocion extends Activity implements Serializable, View.OnClickListener{
     private LoremIpsum loremImpsum;
     private  StringBuilder stringBuilder;
+
+    @BindView(R.id.description)TextView desc;
+    @BindView(R.id.title)TextView title;
+    @BindView(R.id.promo)TextView promo;
+    @BindView(R.id.header)ImageView header;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.destalle_promcion);
+        ButterKnife.bind(this);
         loremImpsum = new LoremIpsum();
 
         ItemData itemData = (ItemData) getIntent().getSerializableExtra("data");
-        TextView tvDes = (TextView) findViewById(R.id.description);
-        TextView tvTitle = (TextView) findViewById(R.id.title);
-        TextView tvPromo = (TextView) findViewById(R.id.promo);
-        ImageView imageView = (ImageView) findViewById(R.id.header);
 
         FloatingActionButton email = (FloatingActionButton) findViewById(R.id.floating_email);
         email.setOnClickListener(this);
@@ -48,21 +53,17 @@ public class DetallePromocion extends Activity implements Serializable, View.OnC
         Bitmap img = BitmapFactory.decodeByteArray(itemData.getImage(),0,itemData.getImage().length);
         int width = img.getWidth();
         int height = img.getHeight();
-        imageView.setMaxWidth(width);
-        imageView.setMaxHeight(height);
-        imageView.setImageBitmap(img);
+        header.setMaxWidth(width);
+        header.setMaxHeight(height);
+        header.setImageBitmap(img);
 
-        tvPromo.setText(itemData.getDescription());
-        tvTitle.setText(itemData.getTitle());
-        tvDes.setText(loremImpsum.getWords());
+        promo.setText(itemData.getDescription());
+        title.setText(itemData.getTitle());
+        desc.setText(loremImpsum.getWords());
         stringBuilder = new StringBuilder();
-        stringBuilder.append(tvTitle.getText());
-        stringBuilder.append(tvPromo.getText());
-        stringBuilder.append(tvDes.getText());
-
-
-
-
+        stringBuilder.append(desc.getText());
+        stringBuilder.append(promo.getText());
+        stringBuilder.append(desc.getText());
 
     }
 
