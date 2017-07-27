@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Capital Social</string>
 
+    <!-- Facebook keys -->
+
+    <string name="facebook_app_id">867301203443195</string>
+    <string name="fb_login_protocol_scheme">fb867301203443195</string>
+
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
@@ -13,4 +19,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+   <string name="login_facebook">Log In With Facebook</string>
+
 </resources>

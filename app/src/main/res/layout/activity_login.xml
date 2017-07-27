@@ -30,9 +30,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+            <Button
+                android:id="@+id/btn_login_fb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/login_small"
+                android:background="@drawable/bkg_fb_btn"
+                android:drawableLeft="@drawable/ic_fb_register"
+                android:drawableStart="@drawable/ic_fb_register"
+                android:padding="5dp"
+                android:paddingEnd="25dp"
+                android:paddingStart="25dp"
+                android:text="@string/login_facebook"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/login_small">
 
                 <AutoCompleteTextView
                     android:id="@+id/email"

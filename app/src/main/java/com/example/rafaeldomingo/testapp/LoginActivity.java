@@ -3,6 +3,7 @@ package com.example.rafaeldomingo.testapp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,8 +31,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -38,6 +51,8 @@ import static android.Manifest.permission.READ_CONTACTS;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+
+    private static final String TAG = "LoginActivity";
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -51,6 +66,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
+
+    /**
+     * Facebook login callback manager
+     */
+    private CallbackManager mCallbackManager;
+
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -66,6 +87,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ButterKnife.bind(this);
+
+        //set up facebook login
+        setUpFacebookLogin();
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -94,12 +121,51 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mProgressView = findViewById(R.id.login_progress);
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
             return;
         }
 
         getLoaderManager().initLoader(0, null, this);
+    }
+
+    /**
+     * Method that sets up facebook login sdk methods
+     */
+    private void setUpFacebookLogin() {
+        mCallbackManager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().logOut();
+
+        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                goToMain();
+            }
+
+            @Override
+            public void onCancel() {
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.e(TAG, "Login Exception ", error);
+            }
+        });
+    }
+
+    /**
+     * Go to the main activity
+     */
+    private void goToMain() {
+        Log.d(TAG, "goToMain: success");
     }
 
     private boolean mayRequestContacts() {
@@ -122,6 +188,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
         }
         return false;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
+    // Ui Callbacks
+    ///////////////////////////////////////////////////////////////////////////
+
+    @OnClick(R.id.btn_login_fb)
+    protected void onFbLoginClick(){
+        String[] fbPermissions = new String[]{"email", "public_profile", "user_birthday"};
+        LoginManager.getInstance().logInWithReadPermissions(this,Arrays.asList(fbPermissions));
     }
 
     /**
